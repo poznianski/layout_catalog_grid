@@ -1,12 +1,23 @@
 .catalog {
   display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: repeat(4, $card-width);
+  grid-template-columns: repeat(1, $card-width);
   grid-template-rows: repeat(auto-fill, $card-height);
 
   justify-content: center;
 
   gap: 48px;
+
+  @media (min-width: 488px) {
+    grid-template-columns: repeat(2, $card-width);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, $card-width);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, $card-width);
+  }
 
   &__card {
     display: flex;
@@ -16,12 +27,6 @@
     height: $card-height;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 48px;
   }
 }
 
-@media (max-width: 1024px) {
-  .catalog {
-    grid-template-columns: repeat(auto-fit, $card-width);
-  }
-}
